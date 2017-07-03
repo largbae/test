@@ -1,4 +1,5 @@
 pipeline {
+  agent any
   properties([parameters([string(defaultValue: 'xyz', description: 'string param', name: 'param1')]), pipelineTriggers([])])
 
   stages {
