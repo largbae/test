@@ -12,7 +12,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        echo 'test'
+        echo "test: ${params.region}"
       }
     }
   }
