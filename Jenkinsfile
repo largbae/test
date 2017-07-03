@@ -1,6 +1,13 @@
 pipeline {
   agent any
-  properties([parameters([string(defaultValue: 'xyz', description: 'string param', name: 'param1')]), pipelineTriggers([])])
+
+  options { 
+    disableConcurrentBuilds() 
+  }
+
+  parameters {
+    choice(choices: 'US-EAST-1\nUS-WEST-2', description: 'What AWS region?', name: 'region')
+  }
 
   stages {
     stage('Test') {
